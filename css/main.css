@@ -15,3 +15,11 @@ body {
     justify-items: center;
 }
 
+button {
+    grid-area: ctr;
+    height: 15vmin;
+    width: 15vmin;
+    border-radius: 50%;
+    background-color: rgba(247, 228, 228, 0.87);
+    outline: none;
+}
