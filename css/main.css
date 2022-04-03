@@ -19,7 +19,6 @@ button {
     grid-area: ctr;
     height: 15vmin;
     width: 15vmin;
-    border-radius: 50%;
     background-color: rgba(247, 228, 228, 0.87);
     outline: none;
 }
@@ -29,4 +28,20 @@ button {
     border: .4vmin solid rgba(219, 219, 219, 0.541);
     font-size: 4vmin;
     color: rgba(255, 255, 255, 0.692);
+}
+
+#red {
+    background-color: red;
+}
+
+#green {
+    background-color: green;
+}
+
+#blue {
+    background-color: blue;
+}
+
+#yellow {
+    background-color: yellow;
 }
