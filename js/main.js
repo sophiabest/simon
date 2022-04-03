@@ -14,8 +14,9 @@ document.querySelector('main').addEventListener('click', handleButton);
 init();
 
 function init() {
-    compPattern = {
+    compPattern = {};
+    playerChoices = {};
+    
 
-    };
 }
 
