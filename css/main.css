@@ -7,13 +7,13 @@ body {
     display: grid;
     text-align: center;
     background-color: white;
-    color: rgba(205, 82, 235, 0.795);
+    color: black;
     font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif
 }
 
 .container {
     height: 60vmin;
-    width: 35%;
+    width: 30%;
     margin: 1em auto 0;
     display: grid;
     grid-template: 2fr 2fr / 2fr 2fr;

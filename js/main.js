@@ -35,11 +35,58 @@ function init() {
     interval = setInterval(gameTurn, 800);
  }
 
-function getRandom() {
-    for (var i = 0; i < 15; i++) {
-        compPattern.push(Math.floor(Math.random() * 4) + 1);
-    } 
-}
+function getColor() {
+    return arr.push(colorsArray[Math.floor(Math.random() * colorsArray.length)])
+};
+
+function flashes(arr) {
+    let i= 0;
+    let interval = setInterval(function() {
+    if (i >= arr.length) {
+        clearInterval(interval);
+        } 
+    }, 1500);
+};
+
+function resetPlayerChoices () {
+    playerChoices = [];
+};
+
+function newRounds () {
+    rounds++
+};
+
+function reset() {
+    rounds = 0;
+    compPattern = [];
+    resetPlayerChoices;
+};
+
+function playerChoices() {
+    if (rounds === 15) {
+        alert("You win!");
+        resetGame;
+    }
+
+    updateRounds();
+
+    for (var i = 0; i < playerChoices.length; i++) {
+        if (JSON.stringify(compPattern) === JSON.stringify(playerChoices)) {
+            resetPlayerChoices();
+            playerChoices();
+            break;
+        }
+        if (playerChoices[i] !== compPattern[i]) {
+            if (
+                playerChoices[i] !== compPattern[i]
+            ) {
+                alert("YOU LOSE");
+                resetGame;
+                break;
+            }
+        }
+    }
+};
 
  startButton.addEventListener('click', (event) => {
     if (startButton.click == true) {
