@@ -12,8 +12,8 @@ body {
 }
 
 .container {
-    height: 90vmin;
-    width: 40%;
+    height: 60vmin;
+    width: 30%;
     margin: 1em auto 0;
     display: grid;
     grid-template: 2fr 2fr / 2fr 2fr;
@@ -26,33 +26,31 @@ button {
     width: 100%;
     display: grid;
     grid-template-columns: 2fr 2fr;
-    grid-gap: 20px;
-    
+    grid-gap: 10px;
 }
 
 
-#startBtn {
+.start-button {
     background-color: black;
-    border: .4vmin solid rgba(219, 219, 219, 0.541);
     font-size: 4vmin;
     color: white;
-    border-radius: 50%;
-    align-items: center;
-    margin: 1em auto 1em;
+    height: 10vmin;
+    width: 10%;
+    align-items:center; 
 }
 
 #red {
-    background-color: red;
+    background-color: rgb(218, 75, 75);
 }
 
 #green {
-    background-color: green;
+    background-color: rgb(79, 135, 79);
 }
 
 #blue {
-    background-color: blue;
+    background-color: rgb(83, 83, 255);
 }
 
 #yellow {
-    background-color: yellow;
+    background-color: rgb(255, 255, 159);
 }
