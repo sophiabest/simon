@@ -17,16 +17,16 @@ body {
     margin: 1em auto 0;
     display: grid;
     grid-template: 2fr 2fr / 2fr 2fr;
-    grid-gap: 20px;
+    
 }
 
 
 button {
-    margin: 1em auto 1em;
+   
     width: 100%;
     display: grid;
     grid-template-columns: 2fr 2fr;
-    grid-gap: 10px;
+    
 }
 
 
@@ -41,16 +41,20 @@ button {
 
 #red {
     background-color: rgb(218, 75, 75);
+    border-top-left-radius: 200px;
 }
 
 #green {
     background-color: rgb(79, 135, 79);
+    border-top-right-radius: 200px;
 }
 
 #blue {
     background-color: rgb(83, 83, 255);
+    border-bottom-left-radius: 200px;
 }
 
 #yellow {
     background-color: rgb(255, 255, 159);
+    border-bottom-right-radius: 200px;
 }

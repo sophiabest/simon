@@ -1,46 +1,68 @@
 /*----- constants -----*/
-const colors = [0, 1, 2, 3];
+const colors = ['red', 'green', 'blue', 'yellow'];
+
 
 /*----- app's state (variables) -----*/
 let compPattern;
 let playerChoices;
-let interval;
-let lose;
 let round;
+let flash;
+let interval;
+
 //let matchPattern;
 
 /*----- cached element references -----*/
+const startBtn = document.querySelector('.startBtn');
+const red = document.querySelector('#red');
+const yellow = document.querySelector('#yellow');
+const blue = document.querySelector('#blue');
+const green = document.querySelector('#green');
+const startButton = document.querySelector('.start-button');
 
 /*----- event listeners -----*/
 //document.querySelector('main').addEventListener('click', handleButton);
-
+//document.querySelector('article').addEventListener('click', handleColorClick);
 /*----- functions -----*/
-init();
-
-function init () {
-    let round = 0;
-    let compPattern = {};
-    let playerChoices = {};
-    let lose = true; 
-}
-
-function render() {
-    createPattern(compPattern);
-    blink(compPattern);
-}
-
-for (var i = 0; i < playerChoices.length; i++) {
-    if (JSON.stringify(compPattern) == JSON.stringify(playerChoices)) {
-        playerChoices = [];
-        round++;
-        roundCounter.innterHTML = round;
-        render(); 
-    } else if (playerChoices[i] !== compPattern[i]) {
-        alert(`Game Over!`);
+startButton.addEventListener('click', (event) => {
+    if (startButton.click == true) {
+        on = true;
+    } else {
+        on = false;
+        clearInterval();
     }
- }
+});
 
- function createPattern = (array) => {
-     array.push(colors[Math.floor(Math.random() * colors.length)]);
- };
+startButton.addEventListener('click', (event) => {
+    if (on || win) {
+        play();
+    }
+});
+
+function play() {
+    win = false;
+    compPattern = [];
+    playerChoices = [];
+    flash = 0;
+    round = 0;
+    
+    for (var i = 0; i < 15; i++) {
+        compPattern.push(Math.floor(Math.random() * 4) + 1);
+    }
+    compTurn = true;
+    interval = setInterval(gameTurn, 800);
+ }
+    
+function gameTurn() {
+   on = false; //play will not be able to click anything
+   if (flash == turn) {
+       clearInterval(interval);
+       compTurn = false;
+       clearColor();
+       on = true; //play will now be able to click colors
+   }
+}
+
+
+
+
 
