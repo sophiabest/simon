@@ -1,5 +1,5 @@
 /*----- constants -----*/
-delay;
+//delay;
 
 /*----- app's state (variables) -----*/
 let compPattern;
@@ -8,69 +8,53 @@ let interval;
 let lose;
 let compTurn;
 let playerTurn;
+let playerRound;
+let getRandom;
+//let matchPattern;
 
 /*----- cached element references -----*/
+const msgEl = document.querySelector('h2');
+const startBtn = document.getElementById('startBtn');
 
 /*----- event listeners -----*/
-document.querySelector('main').addEventListener('click', handleButton);
+//document.querySelector('main').addEventListener('click', handleButton);
+
 /*----- functions -----*/
 init();
 
 function init() {
-    compPattern = {};
-    playerChoices = {};
-    interval = 0;
-    lose = 'true';
-    
-}
-
-function startGame() {
     if (playerRound < 1) {
     }
     playerChoice = [];
     playerRound += 1;
-    getRandom();
-    setTimeout(() => compPattern(), 500);
-    render();
+    //getRandom();
+    //render();
 }
 
-function compTurn(){
-    setTimeout(() => runCompPattern(), 500);
-    playerTurn();
-}
-
-function playerTurn() {
-    matchPattern();
-}
 
 function matchPattern() {
     if(compPattern.length === playerPattern.length) {
         for(let i=0;i<compPattern.length;i++) 
         if(compPattern[i]!=playerPattern[i]) {
             playerPattern = [];
-            document.querySelector('#message').innerHTML = 'Wrong! Watch and try again'
-            multiFlash(4, 200);
             const gameElement = document.querySelector('.game');
-            setTimeout(() => flashes = 0, 1000);
-            setTimeout(() => runCompPattern(), 1000);
         } else {
-            document.querySelector('#message').innerHTML = `Correct! Start Round: ${playerRound + 1}`;
+            
         }
         if (playerRound === totalRounds) {
-            winGame = true;
-            document.querySelector('#message').innerHTML = `You completed all ${playerRound} rounds!`;
+            lose = false;
+            
             playerRound = 0;
             compPattern = [];
             interval = 500;
-            winSequence();
         }
     } 
 } 
 
 
-function getRandom() {
-    compPattern.push(Math.floor(Math.random()*4)+1);
-}
+//function getRandom() {
+    //compPattern.push(Math.floor(Math.random()*4)+1);
+//}
 
 function CompPattern() {
     delayFlash(compPattern);
@@ -81,3 +65,10 @@ async function delayFlash(array){
         
     }
 }
+
+//function flashColor(i) {
+   // if (i === 1) redFlash();
+  //  if (i === 2) blueFlash();
+  //  if (i === 3) yellowFlash();
+  //  if (i === 4) greenFlash();
+//}
