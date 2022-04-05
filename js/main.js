@@ -35,15 +35,39 @@ function init() {
     flash = 0;
     intervals = 0;
     round = 1;
-    for (var i = 0; i < 15; i++) {
-        compPattern.push(Math.floor(Math.random() * 4) + 1);
-    }
+    newColor();
+    // for (var i = 0; i < 15; i++) {
+    
+    //console.log(Math.floor(Math.random() * 4) + 1);
+    // }
+    let delay = 350;
+    blue.style.backgroundColor = 'white';
+    setTimeout(() => {
+        blue.style.backgroundColor = 'blue';
+    }, delay);
+    delay += 350;
+    red.style.backgroundColor = 'white';
+    setTimeout(() => {
+        red.style.backgroundColor = 'red';
+    }, delay);
+    delay += 350;
+    yellow.style.backgroundColor = 'white';
+    setTimeout(() => {
+        yellow.style.backgroundColor = 'yellow';
+    }, delay);
+    delay += 350;
+    green.style.backgroundColor = 'white';
+    setTimeout(() => {
+        green.style.backgroundColor = 'green';
+    }, delay);
+
     compTurn = true;
 
-    intervals = setInterval(gameTurn, 800)
+    intervals = setInterval(playerTurn, 200)
+    console.log()
 }
 
-function gameTurn() {
+function playerTurn() {
     if (flash === round) {
         clearInterval(intervals);
         compTurn = false;
@@ -57,78 +81,83 @@ function gameTurn() {
             if (compPattern[flash] === 3) three();
             if (compPattern[flash] === 4) four();
             flash++;
-        }, 400);
+        }, 1500);
     }
 }
 
+function newColor() {
+    compPattern.push(Math.floor(Math.random() * 4) + 1);
+    console.log(compPattern);
+} 
+
 function one() {
-    red.style.backgroundColor = "tomato";
+    red.style.backgroundColor = "pink";
 }
 function two() {
-    blue.style.backgroundColor = "lightskublue";
+    blue.style.backgroundColor = "aqua";
 }
 function three() {
     yellow.style.backgroundColor = "yellow";
 }
 function four() {
-    green.style.backgroundColor = "lightgreen";
+    green.style.backgroundColor = "limegreen";
 }
 
 function clearColor() {
-    red.style.backgroundColor = "darkred";
-    blue.style.backgroundColor = "darkblue";
-    yellow.style.backgroundColor = "goldenyellow";
-    green.style.backgroundColor = "darkgreen";
+    red.style.backgroundColor = "red";
+    blue.style.backgroundColor = "blue";
+    yellow.style.backgroundColor = "yellow";
+    green.style.backgroundColor = "green";
 }
 
 red.addEventListener('click', (event) => {
     if(flash) {
         playerChoices.push(1);
-        check();
+        //check();
         one();
         if(!win) {
             setTimeout(() => {
                 clearColor();
-            }, 300);
+            }, 200);
         }
-    }
+    }console.log(red);
 })
 
 blue.addEventListener('click', (event) => {
     if(flash) {
         playerChoices.push(2);
-        check();
+        //check();
         one();
         if(!win) {
             setTimeout(() => {
                 clearColor();
-            }, 300);
+            }, 200);
         }
-    }
+    }console.log(blue);
 })
 
 yellow.addEventListener('click', (event) => {
     if(flash) {
         playerChoices.push(3);
-        check();
+        //check();
         one();
         if(!win) {
             setTimeout(() => {
                 clearColor();
-            }, 300);
+            }, 200);
         }
-    }
+    }console.log(yellow);
 })
 
 green.addEventListener('click', (event) => {
     if(flash) {
         playerChoices.push(4);
-        check();
+        //check();
         one();
         if(!win) {
             setTimeout(() => {
                 clearColor();
-            }, 300);
+            }, 200);
         }
-    }
+    }console.log(green);
 })
