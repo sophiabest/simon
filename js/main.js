@@ -1,13 +1,15 @@
 /*----- constants -----*/
-const colors = [0, 1, 2, 3];
+const colors = [1, 2, 3, 4];
 
 
 /*----- app's state (variables) -----*/
-let compPattern;
-let playerChoices;
-let round;
+let compPattern = []; //order of light 
+let playerChoices = []; //player order of clicking lights 
+let round; //keep up with what round we are on 
 let flash;
-let interval;
+let compTurn;
+let intervals;
+let win; 
 
 //let matchPattern;
 
@@ -16,104 +18,117 @@ const red = document.querySelector('#red');
 const yellow = document.querySelector('#yellow');
 const blue = document.querySelector('#blue');
 const green = document.querySelector('#green');
-const startButton = document.querySelector('.start-button');
-
+const startButton = document.querySelector('#start-button');
+const roundCount = document.querySelector('#round');
 /*----- event listeners -----*/
 //document.querySelector('main').addEventListener('click', handleButton);
 //document.querySelector('article').addEventListener('click', handleColorClick);
+startButton.addEventListener('click', (event) => {
+        init();
+    
+});
 /*----- functions -----*/
-init();
-
 function init() {
     win = false;
     compPattern = [];
     playerChoices = [];
     flash = 0;
-    round = 0;
-    gameTurn = 0;
+    intervals = 0;
+    round = 1;
+    for (var i = 0; i < 15; i++) {
+        compPattern.push(Math.floor(Math.random() * 4) + 1);
+    }
     compTurn = true;
-    interval = setInterval(gameTurn, 800);
- }
 
-function getColor() {
-    return arr.push(colorsArray[Math.floor(Math.random() * colorsArray.length)])
-};
-
-function flashes(arr) {
-    let i= 0;
-    let interval = setInterval(function() {
-    if (i >= arr.length) {
-        clearInterval(interval);
-        } 
-    }, 1500);
-};
-
-function resetPlayerChoices () {
-    playerChoices = [];
-};
-
-function newRounds () {
-    rounds++
-};
-
-function reset() {
-    rounds = 0;
-    compPattern = [];
-    resetPlayerChoices;
-};
-
-function playerChoices() {
-    if (rounds === 15) {
-        alert("You win!");
-        resetGame;
-    }
-
-    updateRounds();
-
-    for (var i = 0; i < playerChoices.length; i++) {
-        if (JSON.stringify(compPattern) === JSON.stringify(playerChoices)) {
-            resetPlayerChoices();
-            playerChoices();
-            break;
-        }
-        if (playerChoices[i] !== compPattern[i]) {
-            if (
-                playerChoices[i] !== compPattern[i]
-            ) {
-                alert("YOU LOSE");
-                resetGame;
-                break;
-            }
-        }
-    }
-};
-
- startButton.addEventListener('click', (event) => {
-    if (startButton.click == true) {
-        on = true;
-    } else {
-        on = false;
-        clearInterval();
-    }
-});
-
-startButton.addEventListener('click', (event) => {
-    if (on || win) {
-        play();
-    }
-});
-    
-function gameTurn() {
-   on = false; //play will not be able to click anything
-   if (flash == turn) {
-       clearInterval(interval);
-       compTurn = false;
-       clearColor();
-       on = true; //play will now be able to click colors
-   }
+    intervals = setInterval(gameTurn, 800)
 }
 
+function gameTurn() {
+    if (flash === round) {
+        clearInterval(intervals);
+        compTurn = false;
+        clearColor;
+    }
+    if (compTurn) {
+        clearColor();
+        setTimeout(() => {
+            if (compPattern[flash] === 1) one();
+            if (compPattern[flash] === 2) two();
+            if (compPattern[flash] === 3) three();
+            if (compPattern[flash] === 4) four();
+            flash++;
+        }, 400);
+    }
+}
 
+function one() {
+    red.style.backgroundColor = "tomato";
+}
+function two() {
+    blue.style.backgroundColor = "lightskublue";
+}
+function three() {
+    yellow.style.backgroundColor = "yellow";
+}
+function four() {
+    green.style.backgroundColor = "lightgreen";
+}
 
+function clearColor() {
+    red.style.backgroundColor = "darkred";
+    blue.style.backgroundColor = "darkblue";
+    yellow.style.backgroundColor = "goldenyellow";
+    green.style.backgroundColor = "darkgreen";
+}
 
+red.addEventListener('click', (event) => {
+    if(flash) {
+        playerChoices.push(1);
+        check();
+        one();
+        if(!win) {
+            setTimeout(() => {
+                clearColor();
+            }, 300);
+        }
+    }
+})
 
+blue.addEventListener('click', (event) => {
+    if(flash) {
+        playerChoices.push(2);
+        check();
+        one();
+        if(!win) {
+            setTimeout(() => {
+                clearColor();
+            }, 300);
+        }
+    }
+})
+
+yellow.addEventListener('click', (event) => {
+    if(flash) {
+        playerChoices.push(3);
+        check();
+        one();
+        if(!win) {
+            setTimeout(() => {
+                clearColor();
+            }, 300);
+        }
+    }
+})
+
+green.addEventListener('click', (event) => {
+    if(flash) {
+        playerChoices.push(4);
+        check();
+        one();
+        if(!win) {
+            setTimeout(() => {
+                clearColor();
+            }, 300);
+        }
+    }
+})
