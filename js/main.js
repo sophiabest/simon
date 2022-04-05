@@ -4,7 +4,7 @@ const colors = [1, 2, 3, 4];
 
 /*----- app's state (variables) -----*/
 let compPattern = []; //order of light 
-let playerChoices = []; //player order of clicking lights 
+let playerPattern = []; //player order of clicking lights 
 let round; //keep up with what round we are on 
 let flash;
 let compTurn;
@@ -31,7 +31,7 @@ startButton.addEventListener('click', (event) => {
 function init() {
     win = false;
     compPattern = [];
-    playerChoices = [];
+    playerPattern = [];
     flash = 0;
     intervals = 0;
     round = 1;
@@ -112,7 +112,7 @@ function clearColor() {
 
 red.addEventListener('click', (event) => {
     if(flash) {
-        playerChoices.push(1);
+        playerPattern.push(1);
         //check();
         one();
         if(!win) {
@@ -125,7 +125,7 @@ red.addEventListener('click', (event) => {
 
 blue.addEventListener('click', (event) => {
     if(flash) {
-        playerChoices.push(2);
+        playerPattern.push(2);
         //check();
         one();
         if(!win) {
@@ -138,7 +138,7 @@ blue.addEventListener('click', (event) => {
 
 yellow.addEventListener('click', (event) => {
     if(flash) {
-        playerChoices.push(3);
+        playerPattern.push(3);
         //check();
         one();
         if(!win) {
@@ -151,7 +151,7 @@ yellow.addEventListener('click', (event) => {
 
 green.addEventListener('click', (event) => {
     if(flash) {
-        playerChoices.push(4);
+        playerPattern.push(4);
         //check();
         one();
         if(!win) {
