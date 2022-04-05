@@ -64,7 +64,7 @@ function init() {
     compTurn = true;
 
     intervals = setInterval(playerTurn, 200)
-    console.log()
+    //console.log()
 }
 
 function playerTurn() {
@@ -92,15 +92,27 @@ function newColor() {
 
 function one() {
     red.style.backgroundColor = "pink";
+    setTimeout(() => {
+        red.style.backgroundColor = "red";
+    }, 350);
 }
 function two() {
     blue.style.backgroundColor = "aqua";
+    setTimeout(() => {
+        blue.style.backgroundColor = "blue";
+    }, 350);
 }
 function three() {
-    yellow.style.backgroundColor = "yellow";
+    yellow.style.backgroundColor = "gold";
+    setTimeout(() => {
+        yellow.style.backgroundColor = "yellow";
+    }, 350);  
 }
 function four() {
     green.style.backgroundColor = "limegreen";
+    setTimeout(() => {
+        green.style.backgroundColor = "green";
+    }, 350);
 }
 
 function clearColor() {
@@ -127,7 +139,7 @@ blue.addEventListener('click', (event) => {
     if(flash) {
         playerPattern.push(2);
         //check();
-        one();
+        two();
         if(!win) {
             setTimeout(() => {
                 clearColor();
@@ -140,7 +152,7 @@ yellow.addEventListener('click', (event) => {
     if(flash) {
         playerPattern.push(3);
         //check();
-        one();
+        three();
         if(!win) {
             setTimeout(() => {
                 clearColor();
@@ -153,7 +165,7 @@ green.addEventListener('click', (event) => {
     if(flash) {
         playerPattern.push(4);
         //check();
-        one();
+        four();
         if(!win) {
             setTimeout(() => {
                 clearColor();
