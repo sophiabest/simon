@@ -9,7 +9,7 @@ let round; //keep up with what round we are on
 let flash;
 let compTurn;
 let intervals;
-let win; 
+let win;
 
 //let matchPattern;
 
@@ -26,8 +26,8 @@ const message = document.getElementById("message");
 //document.querySelector('main').addEventListener('click', handleButton);
 //document.querySelector('article').addEventListener('click', handleColorClick);
 startButton.addEventListener('click', (event) => {
-        init();
-    
+    init();
+
 });
 /*----- functions -----*/
 function init() {
@@ -39,7 +39,7 @@ function init() {
     round = 1;
     newColor();
     // for (var i = 0; i < 15; i++) {
-    
+
     //console.log(Math.floor(Math.random() * 4) + 1);
     // }
     let delay = 350;
@@ -91,7 +91,7 @@ function playerTurn() {
 function newColor() {
     compPattern.push(Math.floor(Math.random() * 4) + 1);
     console.log(compPattern);
-} 
+}
 
 function one() {
     red.style.backgroundColor = "pink";
@@ -109,7 +109,7 @@ function three() {
     yellow.style.backgroundColor = "gold";
     setTimeout(() => {
         yellow.style.backgroundColor = "yellow";
-    }, 350);  
+    }, 350);
 }
 function four() {
     green.style.backgroundColor = "limegreen";
@@ -126,7 +126,7 @@ function clearColor() {
 }
 
 red.addEventListener('click', (event) => {
-    if(flash) {
+    if (flash) {
         playerPattern.push(1);
         runCheck();
         one();
@@ -134,7 +134,7 @@ red.addEventListener('click', (event) => {
 })
 
 blue.addEventListener('click', (event) => {
-    if(flash) {
+    if (flash) {
         playerPattern.push(2);
         runCheck();
         two();
@@ -142,7 +142,7 @@ blue.addEventListener('click', (event) => {
 })
 
 yellow.addEventListener('click', (event) => {
-    if(flash) {
+    if (flash) {
         playerPattern.push(3);
         runCheck();
         three();
@@ -150,7 +150,7 @@ yellow.addEventListener('click', (event) => {
 })
 
 green.addEventListener('click', (event) => {
-    if(flash) {
+    if (flash) {
         playerPattern.push(4);
         runCheck();
         four();
@@ -163,8 +163,45 @@ function runCheck() {
     else {
         message.innerText = message.textContent = 'Incorrect!';
     }
-    console.log(runCheck);
-} 
+    //console.log(runCheck);
+}
+
+
+function addColors() {
+    if (message.textContent = "Correct!") {
+        newColor();
+        console.log(compPattern);
+        playerPattern = [];
+        let delay = 350;
+        for (let color of compPattern)
+            if (color === 1) {
+                setTimeout(() => {
+                    red.style.backgroundColor = "pink";
+                }, delay);
+                delay += 350;
+            } else if (color === 2) {
+                setTimeout(() => {
+                    blue.style.backgroundColor = "aqua";
+                }, delay);
+                delay += 350;
+            } else if (color === 3) {
+                setTimeout(() => {
+                    yellow.style.backgroundColor = "gold";
+                }, delay);
+                delay += 350;
+            } else if (color === 4) {
+                setTimeout(() => {
+                    green.style.backgroundColor = "limegreen";
+                }, delay);
+                delay += 350;
+            }
+
+    }
+}
+
+function render() {
+    addColors();
+}
 
 
 
