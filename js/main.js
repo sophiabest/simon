@@ -20,6 +20,7 @@ const blue = document.querySelector('#blue');
 const green = document.querySelector('#green');
 const startButton = document.querySelector('#start-button');
 const roundCount = document.querySelector('#round');
+const message = document.getElementById("message");
 
 /*----- event listeners -----*/
 //document.querySelector('main').addEventListener('click', handleButton);
@@ -129,12 +130,7 @@ red.addEventListener('click', (event) => {
         playerPattern.push(1);
         runCheck();
         one();
-        // if(!win) {
-        //     setTimeout(() => {
-        //         clearColor();
-        //     }, 200);
-        // }
-    }console.log(red);
+    } console.log('red');
 })
 
 blue.addEventListener('click', (event) => {
@@ -142,12 +138,7 @@ blue.addEventListener('click', (event) => {
         playerPattern.push(2);
         runCheck();
         two();
-        // if(!win) {
-        //     setTimeout(() => {
-        //         clearColor();
-        //     }, 200);
-        // }
-    }console.log(blue);
+    } console.log('blue');
 })
 
 yellow.addEventListener('click', (event) => {
@@ -155,12 +146,7 @@ yellow.addEventListener('click', (event) => {
         playerPattern.push(3);
         runCheck();
         three();
-        // if(!win) {
-        //     setTimeout(() => {
-        //         clearColor();
-        //     }, 200);
-        // }
-    }console.log(yellow);
+    } console.log('yellow');
 })
 
 green.addEventListener('click', (event) => {
@@ -168,29 +154,17 @@ green.addEventListener('click', (event) => {
         playerPattern.push(4);
         runCheck();
         four();
-        // if(!win) {
-        //     setTimeout(() => {
-        //         clearColor();
-        //     }, 200);
-        // }
-    }console.log(green);
+    } console.log('green');
 })
 
-function runCheck(compPattern, playerPattern) {
-   const length = compPattern.length;
-   if (length !== playerPattern.length) {
-       return false;
-   }
-   for (let i = 0; i < len; i++) {
-       if (compPattern[i] !== playerPattern[i]) {
-           return false;
-       }
-   }
-   return true; 
-}
+function runCheck() {
+    if (JSON.stringify(compPattern) === JSON.stringify(playerPattern))
+        message.innerText = message.textContent = 'Correct!';
+    else {
+        message.innerText = message.textContent = 'Incorrect!';
+    }
+    console.log(runCheck);
+} 
 
 
 
-function winGame() {
-    win = true;
-};
