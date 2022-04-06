@@ -20,6 +20,7 @@ const blue = document.querySelector('#blue');
 const green = document.querySelector('#green');
 const startButton = document.querySelector('#start-button');
 const roundCount = document.querySelector('#round');
+
 /*----- event listeners -----*/
 //document.querySelector('main').addEventListener('click', handleButton);
 //document.querySelector('article').addEventListener('click', handleColorClick);
@@ -66,6 +67,7 @@ function init() {
     intervals = setInterval(playerTurn, 200)
     //console.log()
 }
+
 
 function playerTurn() {
     if (flash === round) {
@@ -125,51 +127,70 @@ function clearColor() {
 red.addEventListener('click', (event) => {
     if(flash) {
         playerPattern.push(1);
-        //check();
+        runCheck();
         one();
-        if(!win) {
-            setTimeout(() => {
-                clearColor();
-            }, 200);
-        }
+        // if(!win) {
+        //     setTimeout(() => {
+        //         clearColor();
+        //     }, 200);
+        // }
     }console.log(red);
 })
 
 blue.addEventListener('click', (event) => {
     if(flash) {
         playerPattern.push(2);
-        //check();
+        runCheck();
         two();
-        if(!win) {
-            setTimeout(() => {
-                clearColor();
-            }, 200);
-        }
+        // if(!win) {
+        //     setTimeout(() => {
+        //         clearColor();
+        //     }, 200);
+        // }
     }console.log(blue);
 })
 
 yellow.addEventListener('click', (event) => {
     if(flash) {
         playerPattern.push(3);
-        //check();
+        runCheck();
         three();
-        if(!win) {
-            setTimeout(() => {
-                clearColor();
-            }, 200);
-        }
+        // if(!win) {
+        //     setTimeout(() => {
+        //         clearColor();
+        //     }, 200);
+        // }
     }console.log(yellow);
 })
 
 green.addEventListener('click', (event) => {
     if(flash) {
         playerPattern.push(4);
-        //check();
+        runCheck();
         four();
-        if(!win) {
-            setTimeout(() => {
-                clearColor();
-            }, 200);
-        }
+        // if(!win) {
+        //     setTimeout(() => {
+        //         clearColor();
+        //     }, 200);
+        // }
     }console.log(green);
 })
+
+function runCheck(compPattern, playerPattern) {
+   const length = compPattern.length;
+   if (length !== playerPattern.length) {
+       return false;
+   }
+   for (let i = 0; i < len; i++) {
+       if (compPattern[i] !== playerPattern[i]) {
+           return false;
+       }
+   }
+   return true; 
+}
+
+
+
+function winGame() {
+    win = true;
+};
