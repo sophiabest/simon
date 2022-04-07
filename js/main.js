@@ -58,7 +58,7 @@ function renderPattern(i) {
         setTimeout(() => {
             i++;
             renderPattern(i);
-        }, 350);
+        }, 500);
     }
 }
 
