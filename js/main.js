@@ -43,7 +43,6 @@ function getRandomColor() {
     return Math.floor(Math.random() * 4);
 }
 
-
 function computerTurn() {
     round++;
     document.querySelector('#round').innerText = round;
@@ -55,7 +54,7 @@ function computerTurn() {
 
 function renderPattern(i) {
     if(i < pattern.length) {
-        blinkColor(pattern[i]);
+        flashColor(pattern[i]);
         setTimeout(() => {
             i++;
             renderPattern(i);
@@ -63,7 +62,7 @@ function renderPattern(i) {
     }
 }
 
-function blinkColor(color) {
+function flashColor(color) {
     let button = document.querySelector('#' + colors[color]);
     button.style.backgroundColor = flashColors[color];
     setTimeout(() => {
