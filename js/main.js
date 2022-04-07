@@ -1,5 +1,5 @@
 /*----- constants -----*/
-const colors = [1, 2, 3, 4];
+
 
 
 /*----- app's state (variables) -----*/
@@ -10,7 +10,8 @@ let flash;
 let compTurn;
 let intervals;
 let win;
-
+let numClick; 
+let colors = ["red", "green", "blue", "yellow"];
 //let matchPattern;
 
 /*----- cached element references -----*/
@@ -30,14 +31,18 @@ startButton.addEventListener('click', (event) => {
 
 });
 /*----- functions -----*/
+
+
 function init() {
     win = false;
     compPattern = [];
     playerPattern = [];
     flash = 0;
     intervals = 0;
-    round = 1;
+    // numClick = -1;
+    round = 0;
     newColor();
+    render();
     // for (var i = 0; i < 15; i++) {
 
     //console.log(Math.floor(Math.random() * 4) + 1);
@@ -69,16 +74,25 @@ function init() {
     //console.log()
 }
 
+function newColor() {
+    compPattern.push(Math.floor(Math.random() * 4) + 1);
+    console.log(compPattern);
+    // let rand = Math.floor(Math.random() * 4);
+    // let color = colors[rand];
+    // compPattern.push(color);
+    // console.log(compPattern);
+    // playerTurn();
+}
 
 function playerTurn() {
     if (flash === round) {
         clearInterval(intervals);
         compTurn = false;
-        clearColor;
+        clearColor();
     }
     if (compTurn) {
         clearColor();
-        setTimeout(() => {
+         setTimeout(() => {
             if (compPattern[flash] === 1) one();
             if (compPattern[flash] === 2) two();
             if (compPattern[flash] === 3) three();
@@ -88,15 +102,10 @@ function playerTurn() {
     }
 }
 
-function newColor() {
-    compPattern.push(Math.floor(Math.random() * 4) + 1);
-    console.log(compPattern);
-}
-
 function one() {
     red.style.backgroundColor = "pink";
     setTimeout(() => {
-        red.style.backgroundColor = "red";
+       red.style.backgroundColor = "red";
     }, 350);
 }
 function two() {
@@ -158,50 +167,76 @@ green.addEventListener('click', (event) => {
 })
 
 function runCheck() {
-    if (JSON.stringify(compPattern) === JSON.stringify(playerPattern))
+    if (JSON.stringify(compPattern) === JSON.stringify(playerPattern)) {
         message.innerText = message.textContent = 'Correct!';
-    else {
-        message.innerText = message.textContent = 'Incorrect!';
+        playerPattern = [];
+        compTurn = true;
+        addColors();
+        interval = setInterval(gameTurn, 500);
     }
-    //console.log(runCheck);
-}
+    if (JSON.stringify(compPattern) !== JSON.stringify(playerPattern)) {
+        message.innerText = message.textContent = 'Incorrect!';
+        round = 1;
+        playerPattern = [];
+        compPattern = [];
+    }
+    }
+    console.log(runCheck);
+
+
 
 
 function addColors() {
-    if (message.textContent = "Correct!") {
         newColor();
-        console.log(compPattern);
+        //console.log(compPattern);
         playerPattern = [];
-        let delay = 350;
+        let delay = 800;
         for (let color of compPattern)
             if (color === 1) {
                 setTimeout(() => {
                     red.style.backgroundColor = "pink";
                 }, delay);
-                delay += 350;
+                delay += 500;
             } else if (color === 2) {
                 setTimeout(() => {
                     blue.style.backgroundColor = "aqua";
                 }, delay);
-                delay += 350;
+                delay += 500;
             } else if (color === 3) {
                 setTimeout(() => {
                     yellow.style.backgroundColor = "gold";
                 }, delay);
-                delay += 350;
+                delay += 500;
             } else if (color === 4) {
                 setTimeout(() => {
                     green.style.backgroundColor = "limegreen";
                 }, delay);
-                delay += 350;
+                delay += 500;
             }
 
-    }
+    
 }
+
 
 function render() {
     addColors();
 }
 
-
-
+// function runCheck() {
+//     playerPattern.push(color);
+//     if (color === compPattern[numClick]) {
+//         if(playerPattern.length === compPattern.length) {
+//             setTimeout(function() {
+//                 playerPattern = [];
+//                 numClick = -1;
+//                 addColors;
+//             }, 1000)
+//         } 
+//     } else {
+//         message.innerText = message.textContent = 'Game over!';
+//         playerPattern = [];
+//         compPattern = [];
+//         round = 0;
+//         numClick = -1;
+//     }
+// }
