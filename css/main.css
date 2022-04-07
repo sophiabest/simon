@@ -1,7 +1,7 @@
 * {
     box-sizing: border-box;
     margin: 0;
-  }
+}
   
 body {
     display: grid;
@@ -16,18 +16,15 @@ body {
     width: 30%;
     margin: 1em auto 0;
     display: grid;
-    grid-template: 2fr 2fr / 2fr 2fr;
-    cursor: pointer;
+    grid-template: 2fr 2fr / 2fr 2fr;  
 }
-
 
 button {
     width: 100%;
     display: grid;
     grid-template-columns: 2fr 2fr;
-    
+    cursor: pointer;
 }
-
 
 #start-button {
     width: 100px;
