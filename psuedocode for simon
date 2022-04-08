@@ -1,0 +1,35 @@
+1. Define constants 
+ -> colors
+ -> flash colors
+ 
+ 2. Define state variables 
+ -> arrays to represent the pattern of the game 
+ -> round
+ -> intervals
+ -> delay
+ -> computer turn
+ 
+ 3.  computer generates pattern
+ -> generate a random pattern and push 
+ -> push to the pattern array 
+ 
+ 4. player clicks color of choice
+ -> listen to click 
+ -> push to the player pattern 
+ -> check using a match pattern function 
+ 
+ -> if correct after check, move to next round 
+ -> if incorrect, the game is over
+ 
+ 5. next round 
+ -> round++ 
+ -> push to the pattern array 
+ -> pattern flashes
+ 
+ 6. message is displayed 
+ -> if correct, display "correct"
+ -> if incorrect, display "incorrect, start over!"
+    -> game is over and clicks are prevented 
+ 
+ 7. game is over
+ -> call init to restart the game 
