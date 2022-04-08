@@ -5,7 +5,7 @@
 
 <div align="center">
    <h1>SIMON </h1>
-   <h3>https://meetyourclassmates.herokuapp.com/</h3>
+   <h3>https://sophiabest.github.io/simon/</h3>
    <h5>| Sophia Best |  </h5>`                             
    <a href="https://github.com/sophiabest" target="_blank">
       <img src="https://img.shields.io/badge/-Portfolio:_user.github.io-darkgreen?style=flat&logo=medium"/>
