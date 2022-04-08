@@ -2,25 +2,15 @@
 const colors = ['red', 'green', 'blue', 'yellow'];
 const flashColors = ['pink', 'limegreen', 'aqua', 'gold'];
 
-
 // /*----- app's state (variables) -----*/
-
-let pattern = []; //comp order
-//let playerPattern = []; // player order
-let round;//keeps up with what turn we are on 
-let compTurn; //true or false 
+let pattern = []; 
+let round;
+let compTurn; 
 let intervals;
 let results;
 let delay;
 
-
-// //let matchPattern;
-
 // /*----- cached element references -----*/
-// const red = document.querySelector("#red");
-// const green = document.querySelector("#green");
-// const blue = document.querySelector("#blue");
-// const yellow = document.querySelector("#yellow");
 
 // /*----- event listeners -----*/
 document.querySelector('.container').addEventListener('click', handleClick);
