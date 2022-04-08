@@ -8,13 +8,13 @@
    <h3>https://sophiabest.github.io/simon/</h3>
    <h5>| Sophia Best |  </h5>`                             
    <a href="https://github.com/sophiabest" target="_blank">
-      <img src="https://img.shields.io/badge/-Portfolio:_user.github.io-darkgreen?style=flat&logo=medium"/>
+      <img src="https://img.shields.io/badge/-Portfolio:sophiabest.github.io-darkgreen?style=flat&logo=medium"/>
    </a>
    <a href="https://www.linkedin.com/in/sophiabest/" target="_blank">
-      <img src="https://img.shields.io/badge/-linkedin.com/in/user-blue?style=flat&``logo=Linkedin&logoColor=white">
+      <img src="https://img.shields.io/badge/-linkedin.com/in/sophiabest-blue?style=flat&``logo=Linkedin&logoColor=white">
    </a> 
    <a href="mailto:bestsophia1014@gmail.com" target="_blank">
-      <img src="https://img.shields.io/badge/-user@gmail.com-c14438?style=flat&logo=Gmail&``logoColor=white">
+      <img src="https://img.shields.io/badge/-bestsophia1014@gmail.com-c14438?style=flat&logo=Gmail&``logoColor=white">
    </a>
 
 </div>
